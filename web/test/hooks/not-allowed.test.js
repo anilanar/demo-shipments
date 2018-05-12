@@ -15,13 +15,14 @@ describe('\'not-allowed\' hook', () => {
     });
 
     app.service('dummy').hooks({
-      
+
+
     });
   });
 
   it('runs the hook', async () => {
     const result = await app.service('dummy').get('test');
-    
+
     assert.deepEqual(result, { id: 'test' });
   });
 });
