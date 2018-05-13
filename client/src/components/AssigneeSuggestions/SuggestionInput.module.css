@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.input {
+  /* margin: 0; */
+  font-size: 1.5em;
+  outline: none;
+  border-width: 0 0 1px 0;
+  border-color: rgb(117, 117, 117);
+  border-style: dotted;
+}
+
+.suggestionsContainer {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.suggestionsContainer > ul {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: 0.9em;
+  list-style-type: none;
+  padding: 0;
+}
+
+.suggestion {
+  margin: 0.1em;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.suggestionHighlighted {
+  color: white;
+  background-color: #2d9ee0;
+}
+
+.name {
+  font-weight: 600;
+  margin: 0 0.5em;
+}
+
+.username {
+  font-size: 0.8em;
+  font-style: italic;
+}

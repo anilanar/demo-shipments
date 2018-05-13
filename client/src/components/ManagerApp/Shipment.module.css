@@ -1,0 +1,47 @@
+.shipment {
+  display: flex;
+  flex-direction: column;
+  margin: 0.6em;
+  /* padding: 0.6em; */
+  width: 14em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  transition: 0.2s;
+  /* background: lightgray; */
+}
+
+.shipment:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.shipment:last-child {
+  margin-right: 0;
+}
+
+.header {
+  background: lightsalmon;
+  margin: 0;
+  padding: 1em 0.5em;
+  margin-bottom: 0.2em;
+  border-radius: 8px 8px 0 0;
+}
+
+.header.assigned {
+  background: lightgreen;
+}
+
+.content {
+  font-size: 0.8em;
+  padding: 0.6em;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 6em;
+}
+
+.assign {
+  align-self: center;
+  margin-top: auto;
+  font-size: 1.2em;
+  border-radius: 4px;
+}

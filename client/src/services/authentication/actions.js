@@ -14,3 +14,7 @@ export const authenticateFailure = createAction(
   'AUTHENTICATE_FAILURE',
   error => ({ error }),
 );
+
+export const logout = createAction('LOGOUT');
+
+export const checkAuthentication = createAction('CHECK_AUTHENTICATION');

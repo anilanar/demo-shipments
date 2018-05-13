@@ -2,10 +2,5 @@
     "name": "shipments",
     "private": true,
     "workspaces": [
-        "web"
-    ],
-    "devDependencies": {
-        "eslint": "^4.19.1",
-        "eslint-plugin-react": "^7.8.1"
-    }
+    ]
 }

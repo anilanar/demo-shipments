@@ -1,0 +1,24 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.userInfo {
+  align-self: flex-end;
+  margin-right: 1em;
+  margin-bottom: 4em;
+}
+
+.userBadge {
+  margin: 0 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    .app {
+      padding: 1em;
+    }
+  .userInfo {
+    margin-bottom: 1em;
+  }
+}
