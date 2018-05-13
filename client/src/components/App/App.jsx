@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import { compose, pure } from 'recompose';
 import { createStructuredSelector } from 'reselect';
 
-import './global.css';
+import { getUser } from '../../services/authentication/selectors';
+import { Login } from '../../components/Authentication/Login';
+import { Logout } from '../../components/Authentication/Logout';
+import { ManagerApp } from '../../components/ManagerApp/ManagerApp';
 import S from './App.module.css';
-import { getUser } from './services/authentication/selectors';
-import { Login } from './components/Authentication/Login';
-import { Logout } from './components/Authentication/Logout';
-import { ManagerApp } from './components/ManagerApp/ManagerApp';
 
 const Biker = () => (
   <Logout />

@@ -1,13 +1,17 @@
-import feathers from '@feathersjs/client';
+import feathers from '@feathersjs/feathers';
+import rest from '@feathersjs/rest-client';
+import authClient from '@feathersjs/authentication-client';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { Provider as StoreProvider } from 'react-redux';
 import { of } from 'rxjs';
 import { tap, mergeMap, ignoreElements } from 'rxjs/operators';
 import { ofType } from 'redux-observable';
 
 import './index.css';
-import { App } from './App';
+import { App } from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore } from './store';
 import {
@@ -18,13 +22,13 @@ import {
 import { Provider as AppProvider } from './util/react-feathers-app';
 import { getApplicationNode } from './util/application-node';
 
-const restClient = feathers.rest('http://localhost:3030');
+const restClient = rest('http://localhost:3030');
 const app = feathers();
 
 // app.configure(feathers.socketio(socket));
 app.configure(restClient.fetch(window.fetch));
 app.configure(
-  feathers.authentication({
+  authClient({
     storage: window.localStorage,
   }),
 );

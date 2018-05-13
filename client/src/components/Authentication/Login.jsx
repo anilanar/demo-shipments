@@ -14,6 +14,11 @@ const LoginView = ({
   username,
 }) => (
   <div className={S.container}>
+    <p className={S.info}>
+      This application uses mock data. You can login as{' '}
+      <code>manager:manager</code> or as <code>bikerN:bikerN</code> where{' '}
+      <code>0 &le; N &le; 9</code>.
+    </p>
     <form className={S.form} onSubmit={onSubmit}>
       <div className={S.field}>
         <label className={S.label} htmlFor="username">

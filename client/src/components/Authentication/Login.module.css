@@ -6,6 +6,15 @@
   justify-content: center;
 }
 
+.info {
+  width: 25em;
+}
+
+.info code {
+  background-color: hsl(220, 80%, 90%);
+  white-space: nowrap;
+}
+
 .form {
   width: 25em;
   display: flex;

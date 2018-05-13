@@ -3,3 +3,20 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+html, body, #root {
+  height: 100%;
+}
+
+button {
+  background-color: white;
+  box-shadow: none;
+  border-color: black;
+  border-radius: 0.25em;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
+button:hover {
+  background-color: #e5e5e5;
+}
