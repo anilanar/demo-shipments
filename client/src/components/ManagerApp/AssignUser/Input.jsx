@@ -6,10 +6,10 @@ import { createStructuredSelector } from 'reselect';
 
 import Bicycle from 'react-icons/lib/fa/bicycle';
 
-import { getDenormalized } from '../../services/users/selectors';
-import { loadUsersRequest } from '../../services/users/actions';
+import { getDenormalized } from '../../../services/users/selectors';
+import { loadUsersRequest } from '../../../services/users/actions';
 
-import Theme from './SuggestionInput.module.css';
+import Theme from './Input.module.css';
 
 const getValue = user => user.name;
 const renderSuggestion = user => (
@@ -19,7 +19,7 @@ const renderSuggestion = user => (
     <span className={Theme.username}>#{user.username}</span>
   </span>
 );
-const SuggestionInputView = ({
+const InputView = ({
   clearSuggestions,
   onChange,
   select,
@@ -81,4 +81,4 @@ const enhance = compose(
   }),
 );
 
-export const SuggestionInput = enhance(SuggestionInputView);
+export const Input = enhance(InputView);

@@ -2,7 +2,7 @@ import React from 'react';
 import AriaModal from 'react-aria-modal';
 // import { compose } from 'recompose';
 
-import { SuggestionInput } from './SuggestionInput';
+import { Input } from './AssignUser/Input';
 import { getApplicationNode } from '../../util/application-node';
 
 const dialogStyle = {
@@ -20,7 +20,7 @@ const focusTrapOptions = {
   returnFocusOnDeactivate: false,
 };
 
-const AssigneeSuggestionsView = ({ onSelect, onExit }) => (
+const AssignUserView = ({ onSelect, onExit }) => (
   <AriaModal
     titleText={'Foo'}
     getApplicationNode={getApplicationNode}
@@ -28,8 +28,8 @@ const AssigneeSuggestionsView = ({ onSelect, onExit }) => (
     onExit={onExit}
     focusTrapOptions={focusTrapOptions}
   >
-    <SuggestionInput onSelect={onSelect} />
+    <Input onSelect={onSelect} />
   </AriaModal>
 );
 
-export const AssigneeSuggestions = AssigneeSuggestionsView;
+export const AssignUser = AssignUserView;

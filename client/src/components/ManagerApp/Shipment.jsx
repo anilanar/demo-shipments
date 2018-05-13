@@ -12,7 +12,7 @@ import { assignRequest } from '../../services/shipments/actions';
 
 import styles from './Shipment.module.css';
 import classNames from 'classnames/bind';
-import { AssigneeSuggestions } from '../AssigneeSuggestions/AssigneeSuggestions';
+import { AssignUser } from './AssignUser';
 
 const S = classNames.bind(styles);
 const formatDate = date => new Date(date).toLocaleString();
@@ -104,7 +104,7 @@ const ShipmentView = ({
       )}
     </div>
     {showSuggestions ? (
-      <AssigneeSuggestions onSelect={assign} onExit={closeSuggestionsModal} />
+      <AssignUser onSelect={assign} onExit={closeSuggestionsModal} />
     ) : (
       false
     )}
