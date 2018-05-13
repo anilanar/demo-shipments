@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withContext, getContext, compose } from 'recompose';
+import { withContext, getContext } from 'recompose';
 
 const contextful = withContext({ app: PropTypes.object }, ({ app }) => ({
   app,

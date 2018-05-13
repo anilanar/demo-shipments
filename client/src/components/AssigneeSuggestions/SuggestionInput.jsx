@@ -1,7 +1,7 @@
 import React from 'react';
 import AutoSuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
-import { compose, withStateHandlers, withProps, lifecycle } from 'recompose';
+import { compose, withStateHandlers, lifecycle } from 'recompose';
 import { createStructuredSelector } from 'reselect';
 
 import Bicycle from 'react-icons/lib/fa/bicycle';
