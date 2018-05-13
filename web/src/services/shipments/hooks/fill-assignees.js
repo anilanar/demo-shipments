@@ -1,4 +1,3 @@
-// @flow
 const { isArray } = require('lodash');
 
 module.exports = {

@@ -1,6 +1,10 @@
 {
     "name": "shipments",
     "private": true,
-    "workspaces": [
-    ]
+    "devDependencies": {
+        "concurrently": "^3.5.1"
+    },
+    "scripts": {
+      "start": "concurrently \"cd web && yarn start\" \"cd client && yarn start\""
+    }
 }

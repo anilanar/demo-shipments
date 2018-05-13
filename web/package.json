@@ -1,6 +1,6 @@
 {
   "name": "shipments-web",
-  "description": "Web backend for Saloodo",
+  "description": "Web backend for Shipments",
   "version": "0.0.0",
   "homepage": "",
   "main": "src",
