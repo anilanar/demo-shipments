@@ -8,6 +8,7 @@
     "concurrently": "^3.5.1"
   },
   "scripts": {
+    "bootstrap": "cd web && yarn && cd ../client && yarn",
     "start": "concurrently \"cd web && yarn start\" \"cd client && yarn start\""
   }
 }

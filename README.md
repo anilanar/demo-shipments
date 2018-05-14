@@ -1,7 +1,7 @@
 ## Get started
 
 ```
-yarn
+yarn bootstrap
 yarn start
 ```
 
