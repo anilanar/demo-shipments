@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 
 import { assignRequest } from '@services/shipments/actions';
 import { addStatus } from '@util/shipment-status';
+import { asyncComponent } from '@util/async-component';
 import { Assignee } from '@components/Shipments/Assignee';
 import { PickupTime } from '@components/Shipments/PickupTime';
 import { DeliveryTime } from '@components/Shipments/DeliveryTime';
 import { Card } from '@components/Shipments/Card';
 
 import styles from './Shipment.module.css';
-import { AssignUser } from './AssignUser';
+// import { AssignUser } from './AssignUser';
 
 const AssignButton = ({ shipment, onClick }) => (
   <>
@@ -24,8 +25,12 @@ const AssignButton = ({ shipment, onClick }) => (
   </>
 );
 
+const AsyncAssignUser = asyncComponent(() =>
+  import('./AssignUser').then(({ AssignUser }) => AssignUser),
+);
+
 const SuggestionsModal = ({ isShown, close, assign }) => (
-  <>{isShown ? <AssignUser onSelect={assign} onExit={close} /> : false}</>
+  <>{isShown ? <AsyncAssignUser onSelect={assign} onExit={close} /> : false}</>
 );
 
 const ShipmentView = ({

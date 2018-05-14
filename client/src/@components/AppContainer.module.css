@@ -1,24 +1,33 @@
-.app {
+.container {
   display: flex;
   flex-direction: column;
-  padding: 2em;
+  max-width: 1280px;
 }
 
 .userInfo {
-  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
   margin-right: 1em;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
+  align-items: center;
 }
 
 .userBadge {
   margin: 0 1em;
 }
 
-@media only screen and (max-width: 600px) {
-    .app {
-      padding: 1em;
-    }
+.refresh {
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 720px) {
   .userInfo {
     margin-bottom: 1em;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  .container {
+    min-width: 600px;
   }
 }

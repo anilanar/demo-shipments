@@ -4,3 +4,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.refreshContainer {
+  align-self: flex-end;
+}
