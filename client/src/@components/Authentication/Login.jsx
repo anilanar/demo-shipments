@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose, withHandlers, withState } from 'recompose';
 import { connect } from 'react-redux';
-import { authenticateRequest } from '../../services/authentication/actions';
+import { authenticateRequest } from '@services/authentication/actions';
 import S from './Login.module.css';
 import User from 'react-icons/lib/fa/user';
 import Key from 'react-icons/lib/fa/key';

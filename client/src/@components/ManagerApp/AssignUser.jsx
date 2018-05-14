@@ -3,7 +3,7 @@ import AriaModal from 'react-aria-modal';
 // import { compose } from 'recompose';
 
 import { Input } from './AssignUser/Input';
-import { getApplicationNode } from '../../util/application-node';
+import { getApplicationNode } from '@util/application-node';
 
 const dialogStyle = {
   display: 'inline-flex',

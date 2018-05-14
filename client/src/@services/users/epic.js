@@ -1,6 +1,6 @@
 import { switchMap, map, catchError } from 'rxjs/operators';
 
-import { forActions } from '../../util/for-action';
+import { forActions } from '@util/for-action';
 
 import * as Schema from './schema';
 import * as A from './actions';

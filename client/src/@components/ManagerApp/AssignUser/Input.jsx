@@ -6,8 +6,8 @@ import { createStructuredSelector } from 'reselect';
 
 import Bicycle from 'react-icons/lib/fa/bicycle';
 
-import { getDenormalized } from '../../../services/users/selectors';
-import { loadUsersRequest } from '../../../services/users/actions';
+import { getDenormalized } from '@services/users/selectors';
+import { loadUsersRequest } from '@services/users/actions';
 
 import Theme from './Input.module.css';
 

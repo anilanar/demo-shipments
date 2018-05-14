@@ -11,16 +11,16 @@ import { tap, mergeMap, ignoreElements } from 'rxjs/operators';
 import { ofType } from 'redux-observable';
 
 import './index.css';
-import { App } from './components/App/App';
-import registerServiceWorker from './registerServiceWorker';
-import { createStore } from './store';
+import { App } from '@components/App';
 import {
   checkAuthentication,
   authenticateSuccess,
   authenticateFailure,
-} from './services/authentication/actions';
-import { Provider as AppProvider } from './util/react-feathers-app';
-import { getApplicationNode } from './util/application-node';
+} from '@services/authentication/actions';
+import { Provider as AppProvider } from '@util/react-feathers-app';
+import { getApplicationNode } from '@util/application-node';
+import registerServiceWorker from './registerServiceWorker';
+import { createStore } from './store';
 
 const restClient = rest('http://localhost:3030');
 const app = feathers();

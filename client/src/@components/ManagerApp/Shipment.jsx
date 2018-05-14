@@ -8,7 +8,7 @@ import Bicycle from 'react-icons/lib/fa/bicycle';
 import Truck from 'react-icons/lib/fa/truck';
 import Check from 'react-icons/lib/fa/check';
 
-import { assignRequest } from '../../services/shipments/actions';
+import { assignRequest } from '@services/shipments/actions';
 
 import styles from './Shipment.module.css';
 import classNames from 'classnames/bind';

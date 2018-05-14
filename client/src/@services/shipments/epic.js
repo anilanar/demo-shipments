@@ -11,10 +11,9 @@ import {
 } from 'rxjs/operators';
 import { normalize } from 'normalizr';
 
-import { forActions } from '../../util/for-action';
-
-import * as AuthA from '../authentication/actions';
-import { getRole } from '../authentication/selectors';
+import { forActions } from '@util/for-action';
+import * as AuthA from '@services/authentication/actions';
+import { getRole } from '@services/authentication/selectors';
 
 import * as Api from './api';
 import * as Schema from './schema';

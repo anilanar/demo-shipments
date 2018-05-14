@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { Logout } from '../Authentication/Logout';
-import { getUser } from '../../services/authentication/selectors';
+import { getUser } from '@services/authentication/selectors';
+import { Logout } from '@components/Authentication/Logout';
+
 import { ShipmentList } from './ShipmentList';
 import S from './ManagerApp.module.css';
 import User from 'react-icons/lib/fa/user';

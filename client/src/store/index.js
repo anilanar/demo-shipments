@@ -8,9 +8,9 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import { BehaviorSubject } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 
-import * as Auth from '../services/authentication';
-import * as Shipments from '../services/shipments';
-import * as Users from '../services/users';
+import * as Auth from '@services/authentication';
+import * as Shipments from '@services/shipments';
+import * as Users from '@services/users';
 
 export const createStore = ({ app }) => {
   const compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose_;

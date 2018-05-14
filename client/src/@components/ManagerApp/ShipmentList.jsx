@@ -3,7 +3,7 @@ import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { getDenormalized } from '../../services/shipments/selectors';
+import { getDenormalized } from '@services/shipments/selectors';
 
 import { Shipment } from './Shipment';
 import S from './ShipmentList.module.css';
