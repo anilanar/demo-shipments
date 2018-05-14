@@ -62,7 +62,7 @@ const deliver$$ = (action$, _, { app }) =>
     forActions(A.deliverRequest),
     exhaustMap(({ payload: { id } }) =>
       of({ id }).pipe(
-        Api.pickup({ app }),
+        Api.deliver({ app }),
         map(todo => normalize(todo, Schema.todo)),
         map(({ result: id, entities }) => A.deliverSuccess(id, entities)),
         catchError(error => of(A.deliverFailure.asError())),
