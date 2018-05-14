@@ -1,0 +1,18 @@
+.title {
+  color: white;
+  background: crimson;
+  margin: 0;
+  padding: 1em 0.5em;
+  margin-bottom: 0.2em;
+  border-radius: 8px 8px 0 0;
+}
+
+.assigned, .pickedup {
+  background: lightsalmon;
+  color: black;
+}
+
+.delivered {
+  background: lightgreen;
+  color: black;
+}

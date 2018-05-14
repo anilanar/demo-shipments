@@ -1,131 +1,56 @@
 import React from 'react';
 import { compose, withProps, pure, withStateHandlers } from 'recompose';
-import { connect as connectStore } from 'react-redux';
-
-import Arrow from 'react-icons/lib/fa/long-arrow-right';
-import MapMarker from 'react-icons/lib/fa/map-marker';
-import Bicycle from 'react-icons/lib/fa/bicycle';
-import Truck from 'react-icons/lib/fa/truck';
-import Check from 'react-icons/lib/fa/check';
+import { connect } from 'react-redux';
 
 import { assignRequest } from '@services/shipments/actions';
+import { addStatus } from '@util/shipment-status';
+import { Assignee } from '@components/Shipments/Assignee';
+import { PickupTime } from '@components/Shipments/PickupTime';
+import { DeliveryTime } from '@components/Shipments/DeliveryTime';
+import { Card } from '@components/Shipments/Card';
 
 import styles from './Shipment.module.css';
-import classNames from 'classnames/bind';
 import { AssignUser } from './AssignUser';
 
-const S = classNames.bind(styles);
-const formatDate = date => new Date(date).toLocaleString();
-
-const Title = ({ shipment, status }) => (
-  <h3
-    className={S({
-      header: true,
-      assigned: shipment.assignee,
-    })}
-  >
-    #{shipment.id} ({status})
-  </h3>
-);
-const Origin = ({ shipment }) => (
-  <div>
-    <span>
-      <MapMarker /> {shipment.origin}
-    </span>
-  </div>
-);
-const Destination = ({ shipment }) => (
-  <div>
-    <span>
-      <Arrow /> {shipment.destination}
-    </span>
-  </div>
-);
-const Assignee = ({ shipment }) => (
-  <div>
-    {shipment.assignee ? (
-      <span>
-        <Bicycle /> {shipment.assignee.name}
-      </span>
-    ) : (
-      false
-    )}
-  </div>
-);
-const PickupTime = ({ shipment }) => (
-  <div>
-    {shipment.pickupTime ? (
-      <span>
-        <Truck /> {formatDate(shipment.pickupTime)}
-      </span>
-    ) : (
-      false
-    )}
-  </div>
-);
-const DeliveryTime = ({ shipment }) => (
-  <div>
-    {shipment.deliveryTime ? (
-      <span>
-        <Check /> {formatDate(shipment.deliveryTime)}
-      </span>
-    ) : (
-      false
-    )}
-  </div>
-);
-
 const AssignButton = ({ shipment, onClick }) => (
-  <button onClick={onClick} value={shipment.id} className={styles.assign}>
-    Assign
-  </button>
+  <>
+    {shipment.assignee ? (
+      false
+    ) : (
+      <button onClick={onClick} className={styles.assign}>
+        Assign
+      </button>
+    )}
+  </>
+);
+
+const SuggestionsModal = ({ isShown, close, assign }) => (
+  <>{isShown ? <AssignUser onSelect={assign} onExit={close} /> : false}</>
 );
 
 const ShipmentView = ({
   shipment,
-  status,
-  assign,
   showSuggestions,
+  assign,
   openSuggestionsModal,
   closeSuggestionsModal,
 }) => (
-  <div className={styles.shipment}>
-    <Title shipment={shipment} status={status} />
-    <div className={styles.content}>
-      <Origin shipment={shipment} />
-      <Destination shipment={shipment} />
-      <Assignee shipment={shipment} />
-      <PickupTime shipment={shipment} />
-      <DeliveryTime shipment={shipment} />
-      {shipment.assignee ? (
-        false
-      ) : (
-        <AssignButton shipment={shipment} onClick={openSuggestionsModal} />
-      )}
-    </div>
-    {showSuggestions ? (
-      <AssignUser onSelect={assign} onExit={closeSuggestionsModal} />
-    ) : (
-      false
-    )}
-  </div>
+  <Card shipment={shipment}>
+    <Assignee shipment={shipment} />
+    <PickupTime shipment={shipment} />
+    <DeliveryTime shipment={shipment} />
+    <AssignButton shipment={shipment} onClick={openSuggestionsModal} />
+    <SuggestionsModal
+      isShown={showSuggestions}
+      close={closeSuggestionsModal}
+      assign={assign}
+    />
+  </Card>
 );
 
-const getStatus = shipment => {
-  if (shipment.deliveryTime) {
-    return 'Delivered';
-  }
-  if (shipment.pickupTime) {
-    return 'Picked up';
-  }
-  if (shipment.assignee) {
-    return 'Assigned';
-  }
-  return 'Waiting';
-};
-
 const enhance = compose(
-  connectStore(undefined, {
+  pure,
+  connect(undefined, {
     assignRequest,
   }),
   withStateHandlers(
@@ -133,9 +58,7 @@ const enhance = compose(
       showSuggestions: false,
     },
     {
-      openSuggestionsModal: () => event => {
-        return { showSuggestions: true };
-      },
+      openSuggestionsModal: () => () => ({ showSuggestions: true }),
       closeSuggestionsModal: () => () => ({ showSuggestions: false }),
       assign: (_, { shipment, assignRequest }) => ({ user }) => {
         assignRequest(shipment.id, user.id);
@@ -144,10 +67,8 @@ const enhance = compose(
     },
   ),
   withProps(({ shipment }) => ({
-    shipment: shipment,
-    status: getStatus(shipment),
+    shipment: addStatus(shipment),
   })),
-  pure,
 );
 
 export const Shipment = enhance(ShipmentView);

@@ -5,13 +5,9 @@ import { createStructuredSelector } from 'reselect';
 
 import { getUser } from '@services/authentication/selectors';
 import { Login } from '@components/Authentication/Login';
-import { Logout } from '@components/Authentication/Logout';
 import { ManagerApp } from '@components/ManagerApp/ManagerApp';
 import S from './App.module.css';
-
-const Biker = () => (
-  <Logout />
-);
+import { BikerApp } from './BikerApp/BikerApp';
 
 const AppView = ({ user }) => (
   <div className={S.app}>
@@ -20,7 +16,7 @@ const AppView = ({ user }) => (
       : user.role === 'manager'
       ? <ManagerApp />
       : user.role === 'biker'
-      ? <Biker />
+      ? <BikerApp />
       : <h1>An unknown problem has occurred.</h1>
     }
   </div>
