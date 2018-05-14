@@ -1,10 +1,13 @@
 {
-    "name": "shipments",
-    "private": true,
-    "devDependencies": {
-        "concurrently": "^3.5.1"
-    },
-    "scripts": {
-      "start": "concurrently \"cd web && yarn start\" \"cd client && yarn start\""
-    }
+  "name": "shipments",
+  "private": true,
+  "engines": {
+    "node": ">=9.8.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  },
+  "scripts": {
+    "start": "concurrently \"cd web && yarn start\" \"cd client && yarn start\""
+  }
 }
