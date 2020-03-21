@@ -44,7 +44,7 @@
     "helmet": "^3.12.0",
     "invariant": "^2.2.4",
     "is-iso-date": "^0.0.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.13",
     "node-random-name": "^1.0.1",
     "serve-favicon": "^2.5.0",
     "winston": "^2.4.2"
